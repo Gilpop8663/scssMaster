@@ -1,16 +1,12 @@
 const header = document.querySelector("header");
-const span = document.querySelector("header nav span");
 
-function scrollHeader() {
+function handleMenu() {
   let currentH = window.scrollY;
-  console.log(currentH);
   if (currentH > 100) {
-    header.className = "hideHeader";
-    span.innerText = "Schwartz Media";
-  } else if (currentH <= 100) {
-    header.className = "";
-    span.innerText = "Schwartz";
+    header.classList.add("scrollHeader");
+  } else {
+    header.classList.remove("scrollHeader");
   }
 }
 
-window.addEventListener("scroll", scrollHeader);
+window.addEventListener("scroll", handleMenu);
