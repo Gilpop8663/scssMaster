@@ -2,6 +2,8 @@ const header = document.querySelector("header");
 
 const text = document.querySelector(".text__explain");
 
+const cursor = document.querySelector(".cursor");
+
 function handleMenu() {
   let currentH = window.scrollY;
   const h2 = text.querySelector("h2");
@@ -56,3 +58,10 @@ function handleMenu() {
 }
 
 window.addEventListener("scroll", handleMenu);
+
+window.addEventListener("mousemove", handleCursor);
+//커스텀 커서의 left값과 top값을 커서의 XY좌표값과 일치시킴
+function handleCursor(e) {
+  cursor.style.left = e.pageX + "px";
+  cursor.style.top = e.pageY - scrollY + "px";
+}
